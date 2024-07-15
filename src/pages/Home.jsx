@@ -1,6 +1,11 @@
-import { Link } from "react-router-dom";
 //import "./home.css"
 export default function Home() {
+
+    function saveData() {
+        const user = document.getElementById('username').value;
+        document.cookie = `user=${user}; expires=Thu, 18 dec 2024 12:00:00 UTC; path=/`;
+    }
+
     return (
         <div className="homepage">
             <header>
@@ -8,9 +13,11 @@ export default function Home() {
                 <p>Melhorando os resultados de uma equipe inteira.</p>
             </header>
             <main>
-                <button>
-                    <Link to="/marketing">Marketing</Link>
-                </button>
+                <form onSubmit={saveData} action="/marketing">
+                    <label htmlFor="name">Insira seu nome:</label>
+                    <input id="username" type="text" name="name" placeholder="Por exemplo: Liandreira"/>
+                    <button type="submit">Entrar</button>
+                </form>
             </main>
 
             <footer>

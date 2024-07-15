@@ -9,16 +9,15 @@ import { PDFDownloadLink, Document, Text, View, Page} from '@react-pdf/renderer'
 function App() {
 
   return (
-    <MarketingChecklist />
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route path='/' element={<Layout />}>
-    //       <Route index element={<Home />} />
-    //       <Route path='marketing' element={<MarketingChecklist />} />
-    //       <Route path='*' element={<NoPage />} />
-    //     </Route>
-    //   </Routes>
-    // </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path='marketing' element={<MarketingChecklist />} />
+          <Route path='*' element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
