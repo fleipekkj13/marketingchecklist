@@ -1,6 +1,5 @@
 //import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from './pages/Layout/Layout';
 import Home from './pages/Home';
 import NoPage from './pages/NoPage'
 import MarketingChecklist from './pages/MarketingChecklist';
@@ -11,11 +10,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path='marketing' element={<MarketingChecklist />} />
-          <Route path='*' element={<NoPage />} />
-        </Route>
+        <Route path='/' element={<Home />} />
+        <Route index element={<Home />} />
+        <Route path='marketing' element={<MarketingChecklist />} />
+        <Route path='*' element={<NoPage />} />
       </Routes>
     </BrowserRouter>
   );
