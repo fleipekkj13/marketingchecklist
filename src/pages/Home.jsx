@@ -36,21 +36,12 @@ export default function Home() {
 
     const filteredRepos = Lojas.filter(repo => repo.includes(filtered));
 
-
-    function ButtonCheck () {
-        if(ultimateChecklist.style.display === "block") {
-            ultimateChecklist.style.display = "none"
-        } else {
-            ultimateChecklist.style.display = 'block'
-        }
-    }
-
     return (
         <div className="bg-gradient-to-b from-slate-800 to-slate-900 h-full">
             <main className="w-3/5 m-auto text-zinc-300 text-left space-y-20 p-24">
                 <h1 className="text-2xl font-black">Checklist do Marketing.</h1>
                 <nav className="relative box-content bg-slate-800 border border-slate-500 rounded-xl p-2">
-                    <div className="space-x-5 content-center items-center flex" onClick={ButtonCheck} id="container-select-button-home-page">
+                    <div className="space-x-5 content-center items-center flex" id="container-select-button-home-page">
                         <span className="font-black w-3/4">Select the type of checklist: </span>
                         <input type="text" value={filtered} placeholder="Type something in here..."  onChange={(e)=>{setFiltered(e.target.value)}} className="bg-slate-700 rounded-xl text-sm p-2 border border-slate-500 w-screen" />
                     </div>
@@ -73,7 +64,7 @@ export default function Home() {
                 </nav>
 
                 <ul className="space-y-5 box-content">
-                    {Lojas.map((c, i) => {
+                    {filteredRepos.map((c, i) => {
                         return(
                             <li className="border border-slate-700 bg-slate-800 p-5 box-content rounded-lg text-slate-500 items-center space-x-5 flex">
                                 <div>
@@ -81,7 +72,7 @@ export default function Home() {
                                 </div>
                                 <nav className="flex items-center justify-between w-screen">
                                     <div>
-                                        <h1>{c}</h1>
+                                        <h1>{Lojas[i]}</h1>
                                         <p>{SubLojas[i]}</p>
                                     </div>
 
